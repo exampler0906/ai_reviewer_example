@@ -29,6 +29,8 @@ void quickSort(vector<int>& arr, int low, int high) {
 
 // 测试
 int main() {
+
+    
     vector<int> arr = {3, 6, 8, 10, 1, 2, 1};
     quickSort(arr, 0, arr.size() - 1);
 
