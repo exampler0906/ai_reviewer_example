@@ -4,25 +4,15 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-
 jobs:
   example:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }} # 获取 PR 的源分支
-
-      - name: Code Review
-        uses: exampler0906/ai_reviewer/.github/workflows/code_review.yml@main  # 直接复用
-        env:
-            LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-            LLM_API_URL: ${{ secrets.LLM_API_URL }}
-            GITHUB_TOKEN: ${{ secrets.THIS_GITHUB_TOKEN }}
-            REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
-            REPOSITORY_OWNER: ${{ secrets.REPOSITORY_OWNER }}
-            PROMPT_LEVEL : ${{ secrets.PROMPT_LEVEL }}
-        with:
-          pull_request_id: ${{ github.event.pull_request.number }}
-        working-directory: ../
+    uses: exampler0906/ai_reviewer/.github/workflows/code_review.yml@main  # 引用可复用的工作流
+    with:
+      PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
+      COMMIT_ID: ${{ github.event.pull_request.head.sha }} 
+      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+      LLM_API_URL: ${{ secrets.LLM_API_URL }}
+      GITHUB_TOKEN: ${{ secrets.THIS_GITHUB_TOKEN }}
+      REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
+      REPOSITORY_OWNER: ${{ secrets.REPOSITORY_OWNER }}
+      PROMPT_LEVEL: ${{ secrets.PROMPT_LEVEL }}
