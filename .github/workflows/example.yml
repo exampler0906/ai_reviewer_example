@@ -16,10 +16,3 @@ jobs:
       REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
       REPOSITORY_OWNER: ${{ secrets.REPOSITORY_OWNER }}
       PROMPT_LEVEL: ${{ secrets.PROMPT_LEVEL }}
-    secrets:  # 关键修复！通过 secrets 上下文传递
-      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-      LLM_API_URL: ${{ secrets.LLM_API_URL }}
-      GITHUB_TOKEN: ${{ secrets.THIS_GITHUB_TOKEN }}
-      REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
-      REPOSITORY_OWNER: ${{ secrets.REPOSITORY_OWNER }}
-      PROMPT_LEVEL: ${{ secrets.PROMPT_LEVEL }}
