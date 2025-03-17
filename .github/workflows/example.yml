@@ -14,3 +14,6 @@ jobs:
       REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
       REPOSITORY_OWNER: ${{ secrets.REPOSITORY_OWNER }}
       PROMPT_LEVEL: ${{ secrets.PROMPT_LEVEL }}
+    with:
+      PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
+      COMMIT_ID: ${{ github.event.pull_request.head.sha }} 
