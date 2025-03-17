@@ -9,7 +9,7 @@ jobs:
     uses: exampler0906/ai_reviewer/.github/workflows/code_review.yml@main  # 引用可复用的工作流
     with:
       PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
-      COMMIT_ID: ${{ github.event.pull_request.head.sha }}
+      COMMIT_ID: ${{ github.event.pull_request.head.sha }} 
     secrets:
       LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
       LLM_API_URL: ${{ secrets.LLM_API_URL }}
