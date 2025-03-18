@@ -10,6 +10,7 @@ jobs:
     with:
       PULL_REQUEST_ID: ${{ github.event.pull_request.number }}
       COMMIT_ID: ${{ github.event.pull_request.head.sha }}
+      SELF_HOSTED: 'ubuntu-latest'
     secrets:
       LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
       LLM_API_URL: ${{ secrets.LLM_API_URL }}
