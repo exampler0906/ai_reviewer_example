@@ -15,6 +15,6 @@ jobs:
       LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
       LLM_API_URL: ${{ secrets.LLM_API_URL }}
       THIS_GITHUB_TOKEN : ${{ secrets.THIS_GITHUB_TOKEN }}
-      REPOSITORY_NAME: ${{ secrets.REPOSITORY_NAME }}
-      REPOSITORY_OWNER: ${{ secrets.REPOSITORY_OWNER }}
+      REPOSITORY_NAME: ${{ github.event.repository.name }}
+      REPOSITORY_OWNER: ${{ github.repository_owner }}
       PROMPT_LEVEL: ${{ secrets.PROMPT_LEVEL }}
