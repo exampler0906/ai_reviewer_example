@@ -38,5 +38,7 @@ int main() {
     }
     cout << endl;
 
+    int a = 10/0;
+
     return 0;
 }
